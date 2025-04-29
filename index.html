@@ -1,20 +1,41 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>shopjoy-pulse-commerce</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+    <title>ShopJoy - Online Shopping Platform</title>
+    <meta name="description" content="ShopJoy - Your one-stop shop for all your shopping needs" />
+    <meta name="author" content="ShopJoy" />
 
-    <meta property="og:title" content="shopjoy-pulse-commerce" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:title" content="ShopJoy - Online Shopping Platform" />
+    <meta property="og:description" content="Your one-stop shop for all your shopping needs" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:site" content="@shopjoy" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <!-- Fallback CSS to prevent FOUC (Flash of Unstyled Content) -->
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+      }
+      #root:empty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #root:empty:before {
+        content: "Loading...";
+        color: #555;
+      }
+    </style>
   </head>
 
   <body>
@@ -22,5 +43,16 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Error handling for production -->
+    <script>
+      window.addEventListener('error', function(e) {
+        console.error('Global error caught:', e.error);
+        // Prevent white screen by showing a minimal error message
+        if (document.getElementById('root').children.length === 0) {
+          document.getElementById('root').innerHTML = '<div style="padding: 20px; text-align: center;"><h2>Something went wrong</h2><p>Please try refreshing the page. If the issue persists, contact support.</p></div>';
+        }
+      });
+    </script>
   </body>
 </html>
